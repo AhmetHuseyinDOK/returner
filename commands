@@ -1,0 +1,28 @@
+php artisan create:layout "Returner"
+
+php artisan resource-file:create Client --fields="id,company_name,url_customer_id,url_coupon,url_basket,user_id"
+php artisan create:resources Client --with-migration
+
+php artisan resource-file:create Customer --fields="id,client_customer_id,name,email,phone,client_id"
+php artisan create:resources Customer --with-migration
+
+php artisan resource-file:create Basket --fields="id,customer_id"
+php artisan create:resources Basket --with-migration 
+
+php artisan resource-file:create Order --fields="id,customer_id"
+php artisan create:resources Order --with-migration
+
+php artisan resource-file:create OrderItem --fields="id,order_id,product_id,quantity,coupon_id"
+php artisan create:resources OrderItem --with-migration
+
+php artisan resource-file:create Product --fields="id,client_id,url,name,price"
+php artisan create:resources Product --with-migration
+
+php artisan resource-file:create CouponCode --fields="id,customer_id,code,expires,product_id"
+php artisan create:resources CouponCode --with-migration
+
+php artisan resource-file:create View --fields="id,user_id,product_id"
+php artisan create:resources View --with-migration
+
+
+
