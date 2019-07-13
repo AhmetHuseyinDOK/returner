@@ -42,6 +42,7 @@
                     <thead>
                         <tr>
                             <th>Client</th>
+                            <th>Client Product</th>
                             <th>Url</th>
                             <th>Name</th>
                             <th>Price</th>
@@ -52,7 +53,8 @@
                     <tbody>
                     @foreach($products as $product)
                         <tr>
-                            <td>{{ optional($product->client)->company_name }}</td>
+                            <td>{{ optional($product->client)->created_at }}</td>
+                            <td>{{ $product->client_product_id }}</td>
                             <td>{{ $product->url }}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }}</td>

@@ -40,7 +40,7 @@
         {
             "name": "client_customer_id",
             "labels": "Client Customer",
-            "html-type": "select",
+            "html-type": "number",
             "css-class": "",
             "options": {},
             "html-value": null,
@@ -66,15 +66,7 @@
             "placeholder": "Select client customer",
             "delimiter": "; ",
             "range": [],
-            "foreign-relation": {
-                "name": "clientCustomer",
-                "type": "belongsTo",
-                "params": [
-                    "App\\Models\\ClientCustomer",
-                    "client_customer_id"
-                ],
-                "field": "id"
-            },
+            "foreign-relation": null,
             "foreign-constraint": null,
             "on-store": null,
             "on-update": null,

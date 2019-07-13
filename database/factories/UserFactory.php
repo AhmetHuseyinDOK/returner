@@ -45,8 +45,9 @@ $factory->define(Customer::class,function(Faker $faker){
 
 $factory->define(Product::class,function(Faker $faker){
     return [
-        'url' => 'localhost:3000/product/'.$faker->unique()->randomNumber($nbDigits = 3),
+        'url' => "/product/".($id = $faker->unique()->randomNumber($nbDigits = 3)),
         'name' => $faker->sentence($nbWords = 3),
+        'client_product_id'=> $id,
         'price' => rand(20,200)
     ];
 });

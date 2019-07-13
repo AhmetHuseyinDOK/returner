@@ -47,3 +47,19 @@
     </div>
 </div>
 
+<div class="form-group {{ $errors->has('direct') ? 'has-error' : '' }}">
+    <label for="direct" class="col-md-2 control-label">Direct</label>
+    <div class="col-md-10">
+        <input class="form-control" name="direct" type="text" id="direct" value="{{ old('direct', optional($couponCode)->direct) }}" minlength="1" placeholder="Enter direct here...">
+        {!! $errors->first('direct', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('percent') ? 'has-error' : '' }}">
+    <label for="percent" class="col-md-2 control-label">Percent</label>
+    <div class="col-md-10">
+        <input class="form-control" name="percent" type="text" id="percent" value="{{ old('percent', optional($couponCode)->percent) }}" minlength="1" placeholder="Enter percent here...">
+        {!! $errors->first('percent', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+

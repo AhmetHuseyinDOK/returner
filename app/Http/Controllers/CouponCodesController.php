@@ -152,7 +152,9 @@ $products = Product::pluck('name','id')->all();
                 'customer_id' => 'nullable',
             'code' => 'string|min:1|nullable',
             'expires' => 'string|min:1|nullable',
-            'product_id' => 'nullable', 
+            'product_id' => 'nullable',
+            'direct' => 'string|min:1|nullable',
+            'percent' => 'string|min:1|nullable', 
         ];
         
         $data = $request->validate($rules);

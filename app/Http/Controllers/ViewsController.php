@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Models\Product;
-use App\Models\User;
 use App\Models\View;
 use Illuminate\Http\Request;
 use Exception;
@@ -19,7 +19,7 @@ class ViewsController extends Controller
      */
     public function index()
     {
-        $views = View::with('user','product')->paginate(25);
+        $views = View::with('customer','product')->paginate(25);
 
         return view('views.index', compact('views'));
     }
@@ -31,10 +31,10 @@ class ViewsController extends Controller
      */
     public function create()
     {
-        $users = User::pluck('id','id')->all();
+        $customers = Customer::pluck('name','id')->all();
 $products = Product::pluck('name','id')->all();
         
-        return view('views.create', compact('users','products'));
+        return view('views.create', compact('customers','products'));
     }
 
     /**
@@ -70,7 +70,7 @@ $products = Product::pluck('name','id')->all();
      */
     public function show($id)
     {
-        $view = View::with('user','product')->findOrFail($id);
+        $view = View::with('customer','product')->findOrFail($id);
 
         return view('views.show', compact('view'));
     }
@@ -85,10 +85,10 @@ $products = Product::pluck('name','id')->all();
     public function edit($id)
     {
         $view = View::findOrFail($id);
-        $users = User::pluck('id','id')->all();
+        $customers = Customer::pluck('name','id')->all();
 $products = Product::pluck('name','id')->all();
 
-        return view('views.edit', compact('view','users','products'));
+        return view('views.edit', compact('view','customers','products'));
     }
 
     /**
@@ -149,7 +149,7 @@ $products = Product::pluck('name','id')->all();
     protected function getData(Request $request)
     {
         $rules = [
-                'user_id' => 'nullable',
+                'customer_id' => 'nullable',
             'product_id' => 'nullable', 
         ];
         

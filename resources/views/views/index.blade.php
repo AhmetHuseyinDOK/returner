@@ -41,7 +41,7 @@
                 <table class="table table-striped ">
                     <thead>
                         <tr>
-                            <th>User</th>
+                            <th>Customer</th>
                             <th>Product</th>
 
                             <th></th>
@@ -50,7 +50,7 @@
                     <tbody>
                     @foreach($views as $view)
                         <tr>
-                            <td>{{ optional($view->user)->id }}</td>
+                            <td>{{ optional($view->customer)->name }}</td>
                             <td>{{ optional($view->product)->name }}</td>
 
                             <td>

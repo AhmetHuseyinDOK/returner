@@ -39,8 +39,8 @@
 
     <div class="panel-body">
         <dl class="dl-horizontal">
-            <dt>User</dt>
-            <dd>{{ optional($view->user)->id }}</dd>
+            <dt>Customer</dt>
+            <dd>{{ optional($view->customer)->name }}</dd>
             <dt>Product</dt>
             <dd>{{ optional($view->product)->name }}</dd>
 

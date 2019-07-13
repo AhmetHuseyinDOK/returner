@@ -50,16 +50,6 @@ class Customer extends Model
     protected $casts = [];
     
     /**
-     * Get the clientCustomer for this model.
-     *
-     * @return App\Models\ClientCustomer
-     */
-    public function clientCustomer()
-    {
-        return $this->belongsTo('App\Models\ClientCustomer','client_customer_id');
-    }
-
-    /**
      * Get the client for this model.
      *
      * @return App\Models\Client
@@ -69,6 +59,20 @@ class Customer extends Model
         return $this->belongsTo('App\Models\Client','client_id');
     }
 
+    public function findByClientIdOrFail($id){
+        return Customer::where('client_customer_id',$id)->firstOrFail();
+    }
 
+    public function views(){
+        return $this->hasMany('App\Models\View','customer_id');
+    }
+
+    public function couponCodes(){
+        return $this->hasMany('App\Models\CouponCode','customer_id');
+    }
+
+    public function notify(){
+
+    }
 
 }

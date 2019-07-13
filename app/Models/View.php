@@ -28,7 +28,7 @@ class View extends Model
      * @var array
      */
     protected $fillable = [
-                  'user_id',
+                  'customer_id',
                   'product_id'
               ];
 
@@ -47,13 +47,13 @@ class View extends Model
     protected $casts = [];
     
     /**
-     * Get the user for this model.
+     * Get the customer for this model.
      *
-     * @return App\Models\User
+     * @return App\Models\Customer
      */
-    public function user()
+    public function customer()
     {
-        return $this->belongsTo('App\Models\User','user_id');
+        return $this->belongsTo('App\Models\Customer','customer_id');
     }
 
     /**
@@ -66,6 +66,6 @@ class View extends Model
         return $this->belongsTo('App\Models\Product','product_id');
     }
 
-
+    
 
 }

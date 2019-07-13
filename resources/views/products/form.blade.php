@@ -15,6 +15,14 @@
     </div>
 </div>
 
+<div class="form-group {{ $errors->has('client_product_id') ? 'has-error' : '' }}">
+    <label for="client_product_id" class="col-md-2 control-label">Client Product</label>
+    <div class="col-md-10">
+        <input class="form-control" name="client_product_id" type="text" id="client_product_id" value="{{ old('client_product_id', optional($product)->client_product_id) }}" min="0" max="4294967295" placeholder="Select client product">
+        {!! $errors->first('client_product_id', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
 <div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
     <label for="url" class="col-md-2 control-label">Url</label>
     <div class="col-md-10">

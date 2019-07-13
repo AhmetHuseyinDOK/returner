@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
-use App\Models\ClientCustomer;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Exception;
@@ -19,7 +18,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customer::with('clientcustomer','client')->paginate(25);
+        $customers = Customer::with('client')->paginate(25);
 
         return view('customers.index', compact('customers'));
     }
@@ -31,10 +30,9 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        $clientCustomers = ClientCustomer::pluck('id','id')->all();
-$clients = Client::pluck('company_name','id')->all();
+        $clients = Client::pluck('company_name','id')->all();
         
-        return view('customers.create', compact('clientCustomers','clients'));
+        return view('customers.create', compact('clients'));
     }
 
     /**
@@ -70,7 +68,7 @@ $clients = Client::pluck('company_name','id')->all();
      */
     public function show($id)
     {
-        $customer = Customer::with('clientcustomer','client')->findOrFail($id);
+        $customer = Customer::with('client')->findOrFail($id);
 
         return view('customers.show', compact('customer'));
     }
@@ -85,10 +83,9 @@ $clients = Client::pluck('company_name','id')->all();
     public function edit($id)
     {
         $customer = Customer::findOrFail($id);
-        $clientCustomers = ClientCustomer::pluck('id','id')->all();
-$clients = Client::pluck('company_name','id')->all();
+        $clients = Client::pluck('company_name','id')->all();
 
-        return view('customers.edit', compact('customer','clientCustomers','clients'));
+        return view('customers.edit', compact('customer','clients'));
     }
 
     /**
@@ -149,7 +146,7 @@ $clients = Client::pluck('company_name','id')->all();
     protected function getData(Request $request)
     {
         $rules = [
-                'client_customer_id' => 'nullable',
+                'client_customer_id' => 'nullable|numeric|min:0|max:4294967295',
             'name' => 'string|min:1|max:255|nullable',
             'email' => 'nullable',
             'phone' => 'string|min:1|nullable',

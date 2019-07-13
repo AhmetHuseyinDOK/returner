@@ -45,6 +45,8 @@
                             <th>Code</th>
                             <th>Expires</th>
                             <th>Product</th>
+                            <th>Direct</th>
+                            <th>Percent</th>
 
                             <th></th>
                         </tr>
@@ -56,6 +58,8 @@
                             <td>{{ $couponCode->code }}</td>
                             <td>{{ $couponCode->expires }}</td>
                             <td>{{ optional($couponCode->product)->name }}</td>
+                            <td>{{ $couponCode->direct }}</td>
+                            <td>{{ $couponCode->percent }}</td>
 
                             <td>
 

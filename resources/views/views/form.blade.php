@@ -1,17 +1,17 @@
 
-<div class="form-group {{ $errors->has('user_id') ? 'has-error' : '' }}">
-    <label for="user_id" class="col-md-2 control-label">User</label>
+<div class="form-group {{ $errors->has('customer_id') ? 'has-error' : '' }}">
+    <label for="customer_id" class="col-md-2 control-label">Customer</label>
     <div class="col-md-10">
-        <select class="form-control" id="user_id" name="user_id">
-        	    <option value="" style="display: none;" {{ old('user_id', optional($view)->user_id ?: '') == '' ? 'selected' : '' }} disabled selected>Select user</option>
-        	@foreach ($users as $key => $user)
-			    <option value="{{ $key }}" {{ old('user_id', optional($view)->user_id) == $key ? 'selected' : '' }}>
-			    	{{ $user }}
+        <select class="form-control" id="customer_id" name="customer_id">
+        	    <option value="" style="display: none;" {{ old('customer_id', optional($view)->customer_id ?: '') == '' ? 'selected' : '' }} disabled selected>Select customer</option>
+        	@foreach ($customers as $key => $customer)
+			    <option value="{{ $key }}" {{ old('customer_id', optional($view)->customer_id) == $key ? 'selected' : '' }}>
+			    	{{ $customer }}
 			    </option>
 			@endforeach
         </select>
         
-        {!! $errors->first('user_id', '<p class="help-block">:message</p>') !!}
+        {!! $errors->first('customer_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

@@ -16,23 +16,23 @@
         "resource-file": "order_items.json"
     },
     {
-        "model-name": "Product",
-        "resource-file": "products.json"
-    },
-    {
-        "model-name": "CouponCode",
-        "resource-file": "coupon_codes.json"
-    },
-    {
-        "model-name": "View",
-        "resource-file": "views.json"
-    },
-    {
         "model-name": "Role",
         "resource-file": "roles.json"
     },
     {
         "model-name": "Client",
         "resource-file": "clients.json"
+    },
+    {
+        "model-name": "View",
+        "resource-file": "views.json"
+    },
+    {
+        "model-name": "CouponCode",
+        "resource-file": "coupon_codes.json"
+    },
+    {
+        "model-name": "Product",
+        "resource-file": "products.json"
     }
 ]

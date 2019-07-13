@@ -47,6 +47,10 @@
             <dd>{{ $couponCode->expires }}</dd>
             <dt>Product</dt>
             <dd>{{ optional($couponCode->product)->name }}</dd>
+            <dt>Direct</dt>
+            <dd>{{ $couponCode->direct }}</dd>
+            <dt>Percent</dt>
+            <dd>{{ $couponCode->percent }}</dd>
 
         </dl>
 

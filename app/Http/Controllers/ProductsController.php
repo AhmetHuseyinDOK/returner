@@ -30,7 +30,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $clients = Client::pluck('company_name','id')->all();
+        $clients = Client::pluck('created_at','id')->all();
         
         return view('products.create', compact('clients'));
     }
@@ -83,7 +83,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        $clients = Client::pluck('company_name','id')->all();
+        $clients = Client::pluck('created_at','id')->all();
 
         return view('products.edit', compact('product','clients'));
     }
@@ -147,6 +147,7 @@ class ProductsController extends Controller
     {
         $rules = [
                 'client_id' => 'nullable',
+            'client_product_id' => 'nullable',
             'url' => 'string|min:1|nullable',
             'name' => 'string|min:1|max:255|nullable',
             'price' => 'string|min:1|nullable', 

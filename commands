@@ -20,13 +20,13 @@ php artisan create:resources Order --with-migration
 php artisan resource-file:create OrderItem --fields="id,order_id,product_id,quantity,coupon_id"
 php artisan create:resources OrderItem --with-migration
 
-php artisan resource-file:create Product --fields="id,client_id,url,name,price"
+php artisan resource-file:create Product --fields="id,client_id,client_product_id,url,name,price"
 php artisan create:resources Product --with-migration
 
-php artisan resource-file:create CouponCode --fields="id,customer_id,code,expires,product_id"
+php artisan resource-file:create CouponCode --fields="id,customer_id,code,expires,product_id,direct,percent"
 php artisan create:resources CouponCode --with-migration
 
-php artisan resource-file:create View --fields="id,user_id,product_id"
+php artisan resource-file:create View --fields="id,customer_id,product_id"
 php artisan create:resources View --with-migration
 
 

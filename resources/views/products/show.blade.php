@@ -40,7 +40,9 @@
     <div class="panel-body">
         <dl class="dl-horizontal">
             <dt>Client</dt>
-            <dd>{{ optional($product->client)->company_name }}</dd>
+            <dd>{{ optional($product->client)->created_at }}</dd>
+            <dt>Client Product</dt>
+            <dd>{{ $product->client_product_id }}</dd>
             <dt>Url</dt>
             <dd>{{ $product->url }}</dd>
             <dt>Name</dt>

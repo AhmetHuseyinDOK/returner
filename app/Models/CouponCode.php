@@ -31,7 +31,9 @@ class CouponCode extends Model
                   'customer_id',
                   'code',
                   'expires',
-                  'product_id'
+                  'product_id',
+                  'direct',
+                  'percent'
               ];
 
     /**

@@ -29,6 +29,7 @@ class Product extends Model
      */
     protected $fillable = [
                   'client_id',
+                  'client_product_id',
                   'url',
                   'name',
                   'price'
@@ -58,6 +59,8 @@ class Product extends Model
         return $this->belongsTo('App\Models\Client','client_id');
     }
 
-
+    public function views(){
+        return $this->hasMany('App\Models\View');
+    }
 
 }

@@ -38,8 +38,8 @@
             "api-description": "The id of the model."
         },
         {
-            "name": "user_id",
-            "labels": "User",
+            "name": "customer_id",
+            "labels": "Customer",
             "html-type": "select",
             "css-class": "",
             "options": {},
@@ -63,24 +63,24 @@
             "is-date": false,
             "date-format": "",
             "cast-as": "",
-            "placeholder": "Select user",
+            "placeholder": "Select customer",
             "delimiter": "; ",
             "range": [],
             "foreign-relation": {
-                "name": "user",
+                "name": "customer",
                 "type": "belongsTo",
                 "params": [
-                    "App\\Models\\User",
-                    "user_id"
+                    "App\\Models\\Customer",
+                    "customer_id"
                 ],
-                "field": "id"
+                "field": "name"
             },
             "foreign-constraint": null,
             "on-store": null,
             "on-update": null,
-            "api-key": "user_id",
+            "api-key": "customer_id",
             "is-api-visible": true,
-            "api-description": "The user of the model."
+            "api-description": "The customer of the model."
         },
         {
             "name": "product_id",

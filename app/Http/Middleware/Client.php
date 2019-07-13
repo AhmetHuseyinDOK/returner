@@ -15,7 +15,8 @@ class Client
      */
     public function handle($request, Closure $next)
     {
-        $client = Website::where('host',$request->header('origin'))->firstOrFail();
+        $origin = $request->header('origin');
+        $client = Website::where('host',$origin)->firstOrFail();
         $request->merge(['client'=>$client]);
         return $next($request);
     }

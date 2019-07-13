@@ -5,10 +5,29 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Carbon;
 class ViewController extends Controller
 {
+
+    public function get(Request $request){
+        return response()->json('got it');
+    }
+
     public function create(Request $request){
-        return response()->json($request->client);
+        $customer = $request->client->customers()->where('client_customer_id',$request->customerId)->firstOrFail();
+        $product = $request->client->products()->where('url',$request->productUrl)->firstOrFail();
+        $customer->views()->create(['product_id'=>$product->id]);
+        $viewCount = $product->views()->where([
+                ["customer_id","=",$customer->id],
+                ["created_at",">",Carbon::now()->subHours(6)]
+            ])->count();
+        if($viewCount > 3 && !$customer->couponCodes()->where('created_at',">",Carbon::yesterday())->exists()){
+            $data = $request->client->createCouponCode($customer,$product);
+            return response()->json($data);
+        }    
+        return response()->json();
     }       
+
+
 }

@@ -2,15 +2,7 @@
 <div class="form-group {{ $errors->has('client_customer_id') ? 'has-error' : '' }}">
     <label for="client_customer_id" class="col-md-2 control-label">Client Customer</label>
     <div class="col-md-10">
-        <select class="form-control" id="client_customer_id" name="client_customer_id">
-        	    <option value="" style="display: none;" {{ old('client_customer_id', optional($customer)->client_customer_id ?: '') == '' ? 'selected' : '' }} disabled selected>Select client customer</option>
-        	@foreach ($clientCustomers as $key => $clientCustomer)
-			    <option value="{{ $key }}" {{ old('client_customer_id', optional($customer)->client_customer_id) == $key ? 'selected' : '' }}>
-			    	{{ $clientCustomer }}
-			    </option>
-			@endforeach
-        </select>
-        
+        <input class="form-control" name="client_customer_id" type="number" id="client_customer_id" value="{{ old('client_customer_id', optional($customer)->client_customer_id) }}" min="0" max="4294967295" placeholder="Select client customer">
         {!! $errors->first('client_customer_id', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
