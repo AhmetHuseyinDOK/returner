@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Client;
 use App\User;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use Exception;
 
@@ -149,7 +149,8 @@ class ClientsController extends Controller
                 'company_name' => 'string|min:1|nullable',
             'api_customer_url' => 'string|min:1|nullable',
             'api_coupon_url' => 'string|min:1|nullable',
-            'user_id' => 'nullable', 
+            'user_id' => 'nullable',
+            'host' => 'string|min:1|nullable', 
         ];
         
         $data = $request->validate($rules);

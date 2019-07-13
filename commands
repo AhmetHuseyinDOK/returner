@@ -5,7 +5,7 @@ php artisan create:layout "Returner"
 php artisan resource-file:create Role --fields="id,name"
 php artisan create:resources Role --with-migration
 
-php artisan resource-file:create Client --fields="id,company_name,api_customer_url,api_coupon_url,user_id"
+php artisan resource-file:create Client --fields="id,company_name,host,api_customer_url,api_coupon_url,user_id"
 php artisan create:resources Client --with-migration
 
 php artisan resource-file:create Customer --fields="id,client_customer_id,name,email,phone,client_id"

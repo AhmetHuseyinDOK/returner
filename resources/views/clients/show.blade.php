@@ -47,6 +47,8 @@
             <dd>{{ $client->api_coupon_url }}</dd>
             <dt>User</dt>
             <dd>{{ optional($client->user)->id }}</dd>
+            <dt>Host</dt>
+            <dd>{{ $client->host }}</dd>
 
         </dl>
 

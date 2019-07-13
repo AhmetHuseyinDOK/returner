@@ -39,3 +39,11 @@
     </div>
 </div>
 
+<div class="form-group {{ $errors->has('host') ? 'has-error' : '' }}">
+    <label for="host" class="col-md-2 control-label">Host</label>
+    <div class="col-md-10">
+        <input class="form-control" name="host" type="text" id="host" value="{{ old('host', optional($client)->host) }}" minlength="1" placeholder="Enter host here...">
+        {!! $errors->first('host', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+

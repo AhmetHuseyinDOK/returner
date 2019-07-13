@@ -31,7 +31,8 @@ class Client extends Model
                   'company_name',
                   'api_customer_url',
                   'api_coupon_url',
-                  'user_id'
+                  'user_id',
+                  'host'
               ];
 
     /**
@@ -51,11 +52,11 @@ class Client extends Model
     /**
      * Get the user for this model.
      *
-     * @return App\User
+     * @return App\Models\User
      */
     public function user()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\Models\User','user_id');
     }
 
 

@@ -45,6 +45,7 @@
                             <th>Api Customer Url</th>
                             <th>Api Coupon Url</th>
                             <th>User</th>
+                            <th>Host</th>
 
                             <th></th>
                         </tr>
@@ -56,6 +57,7 @@
                             <td>{{ $client->api_customer_url }}</td>
                             <td>{{ $client->api_coupon_url }}</td>
                             <td>{{ optional($client->user)->id }}</td>
+                            <td>{{ $client->host }}</td>
 
                             <td>
 
