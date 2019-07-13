@@ -13,12 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 Route::group(['middleware'=>'cors'],function(){
+
     Route::middleware('auth:api')->get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::group([
-        "middleware" => "client"
-    ],function(){   
-        Route::post('/view',"Client/ViewController@create");    
+
+    Route::group([ "middleware" => ["client"]],function(){   
+        Route::post('/view',"Client\ViewController@create");    
     });
+
 });
