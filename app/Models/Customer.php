@@ -79,20 +79,53 @@ class Customer extends Model
         $id = 1;//$this->client_customer_id;
         $token = "Basic ".$apiKey;
         $appId = "354edde5-17f5-436e-b16d-d8e0ef47f743";
-        $body = [
-            'content'=>[
-                'tr' => 'Deneme'
-            ],
-            'app_id' => $appId,
-            'include_external_user_ids'=>[$id]
-        ];
         
-        $response = $client->request('POST',$url, [
-            \GuzzleHttp\RequestOptions::JSON => $body,
-            'headers'  => [
-                'Authorization' => 'Bearer ' . $token,
-            ]
-            ] );
+        $content      = array(
+            "en" => 'English Message'
+        );
+        $hashes_array = array();
+        array_push($hashes_array, array(
+            "id" => "like-button",
+            "text" => "Like",
+            "icon" => "http://i.imgur.com/N8SN8ZS.png",
+            "url" => "https://yoursite.com"
+        ));
+        array_push($hashes_array, array(
+            "id" => "like-button-2",
+            "text" => "Like2",
+            "icon" => "http://i.imgur.com/N8SN8ZS.png",
+            "url" => "https://yoursite.com"
+        ));
+        $fields = array(
+            'app_id' => $appId,
+            'included_segments' => array(
+                'All'
+            ),
+            'data' => array(
+                "foo" => "bar"
+            ),
+            'contents' => $content,
+            'web_buttons' => $hashes_array
+        );
+        
+        $fields = json_encode($fields);
+        print("\nJSON sent:\n");
+        print($fields);
+
+        // $body = [
+        //     'content'=>[
+        //         'tr' => 'Deneme'
+        //     ],
+        //     'app_id' => $appId,
+        //     'include_external_user_ids'=>[$id]
+        // ];
+        
+        // $response = $client->request('POST',$url, [
+        //     \GuzzleHttp\RequestOptions::JSON => $body,
+        //     'headers'  => [
+        //         'Authorization' => 'Bearer ' . $token,
+        //     ]
+        //     ] );
         
     }
 
