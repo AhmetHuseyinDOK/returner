@@ -90,9 +90,7 @@ class Customer extends Model
         $response = $client->request('POST',$url, [
             \GuzzleHttp\RequestOptions::JSON => $body,
             'headers'  => [
-                'Authorization' => 'Bearer ' . $token, 
-                'Accept'        => 'application/json',
-                'Charset'       => 'charset=utf-8',
+                'Authorization' => 'Bearer ' . $token,
             ]
             ] );
         
