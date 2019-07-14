@@ -150,7 +150,9 @@ class CustomersController extends Controller
             'name' => 'string|min:1|max:255|nullable',
             'email' => 'nullable',
             'phone' => 'string|min:1|nullable',
-            'client_id' => 'nullable', 
+            'client_id' => 'nullable',
+            'os_app_id' => 'nullable|string|min:0',
+            'os_api_key' => 'string|min:1|nullable', 
         ];
         
         $data = $request->validate($rules);

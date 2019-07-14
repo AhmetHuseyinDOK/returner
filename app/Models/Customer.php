@@ -59,74 +59,78 @@ class Customer extends Model
         return $this->belongsTo('App\Models\Client','client_id');
     }
 
-    public function findByClientIdOrFail($id){
-        return Customer::where('client_customer_id',$id)->firstOrFail();
-    }
 
-    public function views(){
-        return $this->hasMany('App\Models\View','customer_id');
-    }
+public function findByClientIdOrFail($id){
+    return Customer::where('client_customer_id',$id)->firstOrFail();
+}
 
-    public function couponCodes(){
-        return $this->hasMany('App\Models\CouponCode','customer_id');
-    }
+public function views(){
+    return $this->hasMany('App\Models\View','customer_id');
+}
 
-    public function notify(){
-        $client = new \GuzzleHttp\Client();
+public function couponCodes(){
+    return $this->hasMany('App\Models\CouponCode','customer_id');
+}
 
-        $url = "https://onesignal.com/api/v1/notifications";
-        $apiKey = "NmI0MmMzNWMtOGQwYS00OTZhLTg2M2ItNTQ3MmY5YzQxYjA0";
-        $id = 1;//$this->client_customer_id;
-        $token = "Basic ".$apiKey;
-        $appId = "354edde5-17f5-436e-b16d-d8e0ef47f743";
-        
-        $content      = array(
-            "en" => 'English Message'
-        );
-        $hashes_array = array();
-        array_push($hashes_array, array(
-            "id" => "like-button",
-            "text" => "Like",
-            "icon" => "http://i.imgur.com/N8SN8ZS.png",
-            "url" => "https://yoursite.com"
-        ));
-        array_push($hashes_array, array(
-            "id" => "like-button-2",
-            "text" => "Like2",
-            "icon" => "http://i.imgur.com/N8SN8ZS.png",
-            "url" => "https://yoursite.com"
-        ));
-        $fields = array(
-            'app_id' => $appId,
-            'included_segments' => array(
-                'All'
-            ),
-            'data' => array(
-                "foo" => "bar"
-            ),
-            'contents' => $content,
-            'web_buttons' => $hashes_array
-        );
-        
-        $fields = json_encode($fields);
-        print("\nJSON sent:\n");
-        print($fields);
+public function notify($message){
+    $client = new \GuzzleHttp\Client();
 
-        // $body = [
-        //     'content'=>[
-        //         'tr' => 'Deneme'
-        //     ],
-        //     'app_id' => $appId,
-        //     'include_external_user_ids'=>[$id]
-        // ];
-        
-        // $response = $client->request('POST',$url, [
-        //     \GuzzleHttp\RequestOptions::JSON => $body,
-        //     'headers'  => [
-        //         'Authorization' => 'Bearer ' . $token,
-        //     ]
-        //     ] );
-        
-    }
+    $url = "https://onesignal.com/api/v1/notifications";
 
+    $apiKey = $this->client->os_api_key;
+    $id = $this->client_customer_id;
+    $token = "Basic ".$apiKey;
+    $appId = $this->client->os_app_id;
+    
+    $content      = array(
+        "en" => $message
+    );
+    $hashes_array = array();
+    // array_push($hashes_array, array(
+    //     "id" => "like-button",
+    //     "text" => "Like",
+    //     "icon" => "http://i.imgur.com/N8SN8ZS.png",
+    //     "url" => "https://yoursite.com"
+    // ));
+    // array_push($hashes_array, array(
+    //     "id" => "like-button-2",
+    //     "text" => "Like2",
+    //     "icon" => "http://i.imgur.com/N8SN8ZS.png",
+    //     "url" => "https://yoursite.com"
+    // ));
+    $fields = array(
+        'app_id' => $appId,
+        'include_external_user_ids' => array(
+            $this->custemer_client_id//'All'
+        ),
+        'contents' => $content,
+        // 'web_buttons' => $hashes_array
+    );
+    
+    $fields = json_encode($fields);
+    print("\nJSON sent:\n");
+    print($fields);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json; charset=utf-8',
+        'Authorization: Basic '.$apiKey
+    ));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return $response;
+    
+
+    
+}
+
+
+    
 }

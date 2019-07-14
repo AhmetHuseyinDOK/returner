@@ -46,6 +46,8 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Client</th>
+                            <th>Os App</th>
+                            <th>Os Api Key</th>
 
                             <th></th>
                         </tr>
@@ -58,6 +60,8 @@
                             <td>{{ $customer->email }}</td>
                             <td>{{ $customer->phone }}</td>
                             <td>{{ optional($customer->client)->company_name }}</td>
+                            <td>{{ $customer->os_app_id }}</td>
+                            <td>{{ $customer->os_api_key }}</td>
 
                             <td>
 

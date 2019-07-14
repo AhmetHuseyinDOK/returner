@@ -49,6 +49,10 @@
             <dd>{{ $customer->phone }}</dd>
             <dt>Client</dt>
             <dd>{{ optional($customer->client)->company_name }}</dd>
+            <dt>Os App</dt>
+            <dd>{{ $customer->os_app_id }}</dd>
+            <dt>Os Api Key</dt>
+            <dd>{{ $customer->os_api_key }}</dd>
 
         </dl>
 

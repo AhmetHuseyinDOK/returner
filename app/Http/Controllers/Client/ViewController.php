@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Carbon;
 class ViewController extends Controller
 {
-
+    
     public function get(Request $request){
         return response()->json('got it');
     }

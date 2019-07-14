@@ -29,5 +29,4 @@ php artisan create:resources CouponCode --with-migration
 php artisan resource-file:create View --fields="id,customer_id,product_id"
 php artisan create:resources View --with-migration
 
-
-
+php artisan resource-file:append Customer --fields="os_app_id,os_api_key"
