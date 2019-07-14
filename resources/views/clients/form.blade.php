@@ -47,3 +47,19 @@
     </div>
 </div>
 
+<div class="form-group {{ $errors->has('os_app_id') ? 'has-error' : '' }}">
+    <label for="os_app_id" class="col-md-2 control-label">Os App</label>
+    <div class="col-md-10">
+        <input class="form-control" name="os_app_id" type="text" id="os_app_id" value="{{ old('os_app_id', optional($client)->os_app_id) }}" placeholder="Select os app">
+        {!! $errors->first('os_app_id', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('os_api_key') ? 'has-error' : '' }}">
+    <label for="os_api_key" class="col-md-2 control-label">Os Api Key</label>
+    <div class="col-md-10">
+        <input class="form-control" name="os_api_key" type="text" id="os_api_key" value="{{ old('os_api_key', optional($client)->os_api_key) }}" minlength="1" placeholder="Enter os api key here...">
+        {!! $errors->first('os_api_key', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+

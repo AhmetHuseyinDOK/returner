@@ -49,6 +49,10 @@
             <dd>{{ optional($client->user)->id }}</dd>
             <dt>Host</dt>
             <dd>{{ $client->host }}</dd>
+            <dt>Os App</dt>
+            <dd>{{ $client->os_app_id }}</dd>
+            <dt>Os Api Key</dt>
+            <dd>{{ $client->os_api_key }}</dd>
 
         </dl>
 

@@ -46,6 +46,8 @@
                             <th>Api Coupon Url</th>
                             <th>User</th>
                             <th>Host</th>
+                            <th>Os App</th>
+                            <th>Os Api Key</th>
 
                             <th></th>
                         </tr>
@@ -58,6 +60,8 @@
                             <td>{{ $client->api_coupon_url }}</td>
                             <td>{{ optional($client->user)->id }}</td>
                             <td>{{ $client->host }}</td>
+                            <td>{{ $client->os_app_id }}</td>
+                            <td>{{ $client->os_api_key }}</td>
 
                             <td>
 

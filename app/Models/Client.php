@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\CouponCode;
+
 class Client extends Model
 {
     
+
     /**
      * The database table used by the model.
      *
@@ -31,7 +32,9 @@ class Client extends Model
                   'api_customer_url',
                   'api_coupon_url',
                   'user_id',
-                  'host'
+                  'host',
+                  'os_app_id',
+                  'os_api_key'
               ];
 
     /**
@@ -55,7 +58,7 @@ class Client extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User','user_id');
+        return $this->belongsTo('App\Models\User','user_id');
     }
 
     public function customers(){
