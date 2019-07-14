@@ -11,11 +11,11 @@
             </div>
             <div class="btn-group btn-group-sm pull-right" role="group">
 
-                <a href="{{ route('clients.client.index') }}" class="btn btn-primary" title="Show All Client">
+                <a href="{{ route('user.clients.client.index') }}" class="btn btn-primary" title="Show All Client">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                 </a>
 
-                <a href="{{ route('clients.client.create') }}" class="btn btn-success" title="Create New Client">
+                <a href="{{ route('user.clients.client.create') }}" class="btn btn-success" title="Create New Client">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
 
@@ -32,10 +32,10 @@
                 </ul>
             @endif
 
-            <form method="POST" action="{{ route('clients.client.update', $client->id) }}" id="edit_client_form" name="edit_client_form" accept-charset="UTF-8" class="form-horizontal">
+            <form method="POST" action="{{ route('user.clients.client.update', $client->id) }}" id="edit_client_form" name="edit_client_form" accept-charset="UTF-8" class="form-horizontal">
             {{ csrf_field() }}
             <input name="_method" type="hidden" value="PUT">
-            @include ('clients.form', [
+            @include ('user.clients.form', [
                                         'client' => $client,
                                       ])
 

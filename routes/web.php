@@ -19,6 +19,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group( [
+     "prefix"=>"user",
+     "middleware"=>"auth"
+],function(){
+     Route::get('/', 'User\ClientsController@index')
+     ->name('users.clients.client.index');
+     Route::get('/create','User\ClientsController@create')
+          ->name('users.clients.client.create');
+     Route::get('/show/{client}','User\ClientsController@show')
+          ->name('users.clients.client.show')->where('id', '[0-9]+');
+     Route::get('/{client}/edit','User\ClientsController@edit')
+          ->name('users.clients.client.edit')->where('id', '[0-9]+');
+     Route::post('/', 'User\ClientsController@store')
+          ->name('users.clients.client.store');
+     Route::put('client/{client}', 'User\ClientsController@update')
+          ->name('users.clients.client.update')->where('id', '[0-9]+');
+     Route::delete('/client/{client}','User\ClientsController@destroy')
+          ->name('users.clients.client.destroy')->where('id', '[0-9]+');
+});
+
 Route::group(  [
      "prefix" => "admin",
      "middleware" => ["admin"]

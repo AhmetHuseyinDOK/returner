@@ -11,19 +11,19 @@
 
         <div class="pull-right">
 
-            <form method="POST" action="{!! route('clients.client.destroy', $client->id) !!}" accept-charset="UTF-8">
+            <form method="POST" action="{!! route('user.clients.client.destroy', $client->id) !!}" accept-charset="UTF-8">
             <input name="_method" value="DELETE" type="hidden">
             {{ csrf_field() }}
                 <div class="btn-group btn-group-sm" role="group">
-                    <a href="{{ route('clients.client.index') }}" class="btn btn-primary" title="Show All Client">
+                    <a href="{{ route('user.clients.client.index') }}" class="btn btn-primary" title="Show All Client">
                         <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     </a>
 
-                    <a href="{{ route('clients.client.create') }}" class="btn btn-success" title="Create New Client">
+                    <a href="{{ route('user.clients.client.create') }}" class="btn btn-success" title="Create New Client">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </a>
                     
-                    <a href="{{ route('clients.client.edit', $client->id ) }}" class="btn btn-primary" title="Edit Client">
+                    <a href="{{ route('user.clients.client.edit', $client->id ) }}" class="btn btn-primary" title="Edit Client">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </a>
 

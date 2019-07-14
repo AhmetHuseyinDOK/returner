@@ -11,7 +11,7 @@
             </span>
 
             <div class="btn-group btn-group-sm pull-right" role="group">
-                <a href="{{ route('clients.client.index') }}" class="btn btn-primary" title="Show All Client">
+                <a href="{{ route('user.clients.client.index') }}" class="btn btn-primary" title="Show All Client">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                 </a>
             </div>
@@ -28,7 +28,7 @@
                 </ul>
             @endif
 
-            <form method="POST" action="{{ route('clients.client.store') }}" accept-charset="UTF-8" id="create_client_form" name="create_client_form" class="form-horizontal">
+            <form method="POST" action="{{ route('user.clients.client.store') }}" accept-charset="UTF-8" id="create_client_form" name="create_client_form" class="form-horizontal">
             {{ csrf_field() }}
             @include ('user.clients.form', [
                                         'client' => null,
