@@ -14,7 +14,7 @@ class AlterClients4Table extends Migration
     {
         Schema::table('clients', function(Blueprint $table)
         {
-            $table->string('os_app_id')->nullable()->index();
+            $table->string('os_app_id')->nullable();
             $table->string('os_api_key')->nullable();
 
         });
