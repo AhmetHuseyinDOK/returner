@@ -241,7 +241,7 @@
             "is-on-index": true,
             "is-on-show": true,
             "is-on-form": true,
-            "data-type": "string|nullable",
+            "data-type": "string",
             "data-type-params": [],
             "data-value": null,
             "is-index": false,

@@ -67,8 +67,8 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        $client = auth()->user()->client()->findOrFail($id);
-
+        $client = auth()->user()->clients()->findOrFail($id);
+        
         return view('user.clients.show', compact('client'));
     }
 
@@ -81,7 +81,7 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-        $client = auth()->user()->client()->findOrFail($id);
+        $client = auth()->user()->clients()->findOrFail($id);
         
 
         return view('user.clients.edit', compact('client'));
@@ -101,7 +101,7 @@ class ClientsController extends Controller
             
             $data = $this->getData($request);
             
-            $client = auth()->user()->client()->findOrFail($id);
+            $client = auth()->user()->clients()->findOrFail($id);
             $client->update($data);
 
             return redirect()->route('user.clients.client.index')
@@ -123,7 +123,7 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         try {
-            $client = auth()->user()->client()->findOrFail($id);
+            $client = auth()->user()->clients()->findOrFail($id);
             $client->delete();
 
             return redirect()->route('user.clients.client.index')

@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'Returner') }}</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -34,9 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.clients.client.index') }}">Clients</a>
-                            </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

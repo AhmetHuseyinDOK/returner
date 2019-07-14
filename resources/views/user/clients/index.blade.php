@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 
     @if(Session::has('success_message'))
         <div class="alert alert-success">
-            <span class="glyphicon glyphicon-ok"></span>
+            <span class="fa fa-ok"></span>
             {!! session('success_message') !!}
 
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
@@ -24,7 +24,7 @@
 
             <div class="btn-group btn-group-sm pull-right" role="group">
                 <a href="{{ route('user.clients.client.create') }}" class="btn btn-success" title="Create New Client">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <span class="fa fa-plus" aria-hidden="true"></span>
                 </a>
             </div>
 
@@ -69,14 +69,14 @@
 
                                     <div class="btn-group btn-group-xs pull-right" role="group">
                                         <a href="{{ route('user.clients.client.show', $client->id ) }}" class="btn btn-info" title="Show Client">
-                                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                                            <span class="fa fa-eye" aria-hidden="true"></span>
                                         </a>
                                         <a href="{{ route('user.clients.client.edit', $client->id ) }}" class="btn btn-primary" title="Edit Client">
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            <span class="fa fa-pencil" aria-hidden="true"></span>
                                         </a>
 
                                         <button type="submit" class="btn btn-danger" title="Delete Client" onclick="return confirm(&quot;Click Ok to delete Client.&quot;)">
-                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                            <span class="fa fa-trash" aria-hidden="true"></span>
                                         </button>
                                     </div>
 

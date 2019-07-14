@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    
+
 
     /**
      * The database table used by the model.
@@ -58,7 +58,7 @@ class Client extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User','user_id');
+        return $this->belongsTo('App\User','user_id');
     }
 
     public function customers(){
@@ -88,6 +88,10 @@ class Client extends Model
         $coupon->save();
         
         return $coupon;
+    }
+
+    public function getScriptAttribute(){
+        return view('user.script',['client'=>$this])->render();
     }
 
 }

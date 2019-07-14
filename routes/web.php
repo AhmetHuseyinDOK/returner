@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    (new App\Models\Customer())->notify(); 
+    //(new App\Models\Customer())->notify(); 
     return view('welcome');
 });
 
@@ -24,6 +24,7 @@ Route::group( [
      "prefix"=>"user",
      "middleware"=>"auth"
 ],function(){
+     Route::get('/home', 'HomeController@index')->name('user.home');
      Route::group([
           'prefix' => 'clients',
       ], function () {

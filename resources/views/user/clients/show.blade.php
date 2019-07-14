@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
 @section('content')
 
@@ -16,19 +16,19 @@
             {{ csrf_field() }}
                 <div class="btn-group btn-group-sm" role="group">
                     <a href="{{ route('user.clients.client.index') }}" class="btn btn-primary" title="Show All Client">
-                        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                        <span class="fa fa-list" aria-hidden="true"></span>
                     </a>
 
                     <a href="{{ route('user.clients.client.create') }}" class="btn btn-success" title="Create New Client">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            <i class="fa fa-plus"></i>
                     </a>
                     
                     <a href="{{ route('user.clients.client.edit', $client->id ) }}" class="btn btn-primary" title="Edit Client">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        <span class="fa fa-edit" aria-hidden="true"></span>
                     </a>
 
                     <button type="submit" class="btn btn-danger" title="Delete Client" onclick="return confirm(&quot;Click Ok to delete Client.?&quot;)">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        <span class="fa fa-trash" aria-hidden="true"></span>
                     </button>
                 </div>
             </form>
@@ -38,23 +38,32 @@
     </div>
 
     <div class="panel-body">
-        <dl class="dl-horizontal">
-            <dt>Company Name</dt>
-            <dd>{{ $client->company_name }}</dd>
-            <dt>Api Customer Url</dt>
-            <dd>{{ $client->api_customer_url }}</dd>
-            <dt>Api Coupon Url</dt>
-            <dd>{{ $client->api_coupon_url }}</dd>
-            <dt>User</dt>
-            <dd>{{ optional($client->user)->id }}</dd>
-            <dt>Host</dt>
-            <dd>{{ $client->host }}</dd>
-            <dt>Os App</dt>
-            <dd>{{ $client->os_app_id }}</dd>
-            <dt>Os Api Key</dt>
-            <dd>{{ $client->os_api_key }}</dd>
-
-        </dl>
+        <div class="row">
+                <div class="col-sm-6">
+                        <dl class="dl-horizontal">
+                                <dt>Company Name</dt>
+                                <dd>{{ $client->company_name }}</dd>
+                                <dt>Api Customer Url</dt>
+                                <dd>{{ $client->api_customer_url }}</dd>
+                                <dt>Api Coupon Url</dt>
+                                <dd>{{ $client->api_coupon_url }}</dd>
+                                <dt>Host</dt>
+                                <dd>{{ $client->host }}</dd>
+                                <dt>Os App</dt>
+                                <dd>{{ $client->os_app_id }}</dd>
+                                <dt>Os Api Key</dt>
+                                <dd>{{ $client->os_api_key }}</dd>
+                    
+                            </dl>
+                </div>
+                <div class="col-sm-6">
+                    <pre>
+                        {{$client->script}}
+                    </pre>
+                </div>
+        </div>
+        
+        
 
     </div>
 </div>

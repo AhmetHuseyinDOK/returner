@@ -21,7 +21,8 @@ class CreateClientsTable extends Migration
             $table->string('url_coupon')->nullable();
             $table->string('url_basket')->nullable();
             $table->integer('user_id')->unsigned()->nullable()->index();
-
+            $table->string('os_app_id')->nullable();
+            $table->string('os_api_key')->nullable();
         });
     }
 

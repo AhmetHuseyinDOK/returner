@@ -26,7 +26,7 @@ Route::group(['middleware'=>'cors'],function(){
 
     Route::group([ "middleware" => "client"],function(){   
         Route::post('/view',"Client\ViewController@create");    
-        Route::get('/view',"Client\ViewController@get");
+        Route::get('/view',"Client\ViewController@get")->name("user.client.view.save");
     });
 
 });
