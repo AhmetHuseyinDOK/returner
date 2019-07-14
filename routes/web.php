@@ -16,6 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// use App\Models\Customer;
+// Route::get('/notify/{id}',function(){
+//      return response(Customer::findOrFail(request()->id)->notify("deneme"));
+// });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

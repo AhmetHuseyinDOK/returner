@@ -101,7 +101,7 @@ public function notify($message){
     $fields = array(
         'app_id' => $appId,
         'include_external_user_ids' => array(
-            $this->custemer_client_id//'All'
+            $this->client_customer_id//'All'
         ),
         'contents' => $content,
         // 'web_buttons' => $hashes_array

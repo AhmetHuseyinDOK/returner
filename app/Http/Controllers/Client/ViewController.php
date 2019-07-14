@@ -23,8 +23,9 @@ class ViewController extends Controller
                 ["created_at",">",Carbon::now()->subHours(6)]
             ])->count();
         if($viewCount > 3 && !$customer->couponCodes()->where('created_at',">",Carbon::yesterday())->exists()){
-            $data = $request->client->createCouponCode($customer,$product);
-            return response()->json($data);
+            $code = $request->client->createCouponCode($customer,$product);
+            $customer->notify("Special For You, $product->name has $code->direct $ discount till end of the day,Buy Now!");
+            return response()->json($code);
         }    
         return response()->json();
     }       
