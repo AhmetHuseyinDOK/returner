@@ -24,20 +24,24 @@ Route::group( [
      "prefix"=>"user",
      "middleware"=>"auth"
 ],function(){
-     Route::get('/', 'User\ClientsController@index')
-     ->name('users.clients.client.index');
-     Route::get('/create','User\ClientsController@create')
-          ->name('users.clients.client.create');
-     Route::get('/show/{client}','User\ClientsController@show')
-          ->name('users.clients.client.show')->where('id', '[0-9]+');
-     Route::get('/{client}/edit','User\ClientsController@edit')
-          ->name('users.clients.client.edit')->where('id', '[0-9]+');
-     Route::post('/', 'User\ClientsController@store')
-          ->name('users.clients.client.store');
-     Route::put('client/{client}', 'User\ClientsController@update')
-          ->name('users.clients.client.update')->where('id', '[0-9]+');
-     Route::delete('/client/{client}','User\ClientsController@destroy')
-          ->name('users.clients.client.destroy')->where('id', '[0-9]+');
+     Route::group([
+          'prefix' => 'clients',
+      ], function () {
+          Route::get('/', 'User\ClientsController@index')
+          ->name('user.clients.client.index');
+          Route::get('/create','User\ClientsController@create')
+               ->name('user.clients.client.create');
+          Route::get('/show/{client}','User\ClientsController@show')
+               ->name('user.clients.client.show')->where('id', '[0-9]+');
+          Route::get('/{client}/edit','User\ClientsController@edit')
+               ->name('user.clients.client.edit')->where('id', '[0-9]+');
+          Route::post('/', 'User\ClientsController@store')
+               ->name('user.clients.client.store');
+          Route::put('client/{client}', 'User\ClientsController@update')
+               ->name('user.clients.client.update')->where('id', '[0-9]+');
+          Route::delete('/client/{client}','User\ClientsController@destroy')
+               ->name('user.clients.client.destroy')->where('id', '[0-9]+');
+     });
 });
 
 Route::group(  [
