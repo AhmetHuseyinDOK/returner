@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    (new App\Models\Customer())->notify(); 
     return view('welcome');
 });
 

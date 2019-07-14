@@ -72,7 +72,30 @@ class Customer extends Model
     }
 
     public function notify(){
+        $client = new \GuzzleHttp\Client();
 
+        $url = "https://onesignal.com/api/v1/notifications";
+        $apiKey = "NmI0MmMzNWMtOGQwYS00OTZhLTg2M2ItNTQ3MmY5YzQxYjA0";
+        $id = 1;//$this->client_customer_id;
+        $token = "Basic ".$apiKey;
+        $appId = "354edde5-17f5-436e-b16d-d8e0ef47f743";
+        $body = [
+            'content'=>[
+                'tr' => 'Deneme'
+            ],
+            'app_id' => $appId,
+            'include_external_user_ids'=>[$id]
+        ];
+        
+        $response = $client->request('POST',$url, [
+            \GuzzleHttp\RequestOptions::JSON => $body,
+            'headers'  => [
+                'Authorization' => 'Bearer ' . $token, 
+                'Accept'        => 'application/json',
+                'Charset'       => 'charset=utf-8',
+            ]
+            ] );
+        
     }
 
 }
