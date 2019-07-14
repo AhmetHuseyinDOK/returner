@@ -16,7 +16,6 @@ class AlterClients4Table extends Migration
         {
             $table->string('os_app_id')->nullable();
             $table->string('os_api_key')->nullable();
-
         });
     }
 

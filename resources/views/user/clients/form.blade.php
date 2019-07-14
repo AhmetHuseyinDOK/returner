@@ -1,0 +1,49 @@
+
+<div class="form-group {{ $errors->has('company_name') ? 'has-error' : '' }}">
+    <label for="company_name" class="col-md-2 control-label">Company Name</label>
+    <div class="col-md-10">
+        <input class="form-control" name="company_name" type="text" id="company_name" value="{{ old('company_name', optional($client)->company_name) }}" minlength="1" placeholder="Enter company name here...">
+        {!! $errors->first('company_name', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('api_customer_url') ? 'has-error' : '' }}">
+    <label for="api_customer_url" class="col-md-2 control-label">Api Customer Url</label>
+    <div class="col-md-10">
+        <input class="form-control" name="api_customer_url" type="text" id="api_customer_url" value="{{ old('api_customer_url', optional($client)->api_customer_url) }}" minlength="1" placeholder="Enter api customer url here...">
+        {!! $errors->first('api_customer_url', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('api_coupon_url') ? 'has-error' : '' }}">
+    <label for="api_coupon_url" class="col-md-2 control-label">Api Coupon Url</label>
+    <div class="col-md-10">
+        <input class="form-control" name="api_coupon_url" type="text" id="api_coupon_url" value="{{ old('api_coupon_url', optional($client)->api_coupon_url) }}" minlength="1" placeholder="Enter api coupon url here...">
+        {!! $errors->first('api_coupon_url', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('host') ? 'has-error' : '' }}">
+    <label for="host" class="col-md-2 control-label">Host</label>
+    <div class="col-md-10">
+        <input class="form-control" name="host" type="text" id="host" value="{{ old('host', optional($client)->host) }}" minlength="1" placeholder="Enter host here...">
+        {!! $errors->first('host', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('os_app_id') ? 'has-error' : '' }}">
+    <label for="os_app_id" class="col-md-2 control-label">Os App</label>
+    <div class="col-md-10">
+        <input class="form-control" name="os_app_id" type="text" id="os_app_id" value="{{ old('os_app_id', optional($client)->os_app_id) }}" placeholder="Select os app">
+        {!! $errors->first('os_app_id', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
+<div class="form-group {{ $errors->has('os_api_key') ? 'has-error' : '' }}">
+    <label for="os_api_key" class="col-md-2 control-label">Os Api Key</label>
+    <div class="col-md-10">
+        <input class="form-control" name="os_api_key" type="text" id="os_api_key" value="{{ old('os_api_key', optional($client)->os_api_key) }}" minlength="1" placeholder="Enter os api key here...">
+        {!! $errors->first('os_api_key', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+
